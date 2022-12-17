@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github/kameshsampath/devfest-ahm22/pkg/greeter";
+
+package greeter;
+
+service Greeter {
+	rpc Greet (GreetRequest) returns ( stream GreetResponse);
+}
+
+message GreetRequest{
+	string message = 1;
+	string source_lang = 2;
+	repeated string target_langs = 3;
+}
+
+message GreetResponse{
+	string message = 1;
+	string lang = 2;
+}
